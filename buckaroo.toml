@@ -1,1 +1,5 @@
 targets = [ "//:vorbis" ]
+
+[[dependency]]
+package = "github.com/buckaroo-pm/xiph-ogg"
+version = "branch=master"

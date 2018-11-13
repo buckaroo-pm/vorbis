@@ -16,6 +16,9 @@ cxx_library(
   compiler_flags = [
     '-std=c11',
   ],
+  deps = [
+    'buckaroo.github.buckaroo-pm.xiph-ogg//:ogg', 
+  ], 
   visibility = [
     'PUBLIC',
   ],

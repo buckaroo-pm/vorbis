@@ -40,5 +40,8 @@ lib/test_sharedbook
 test/test
 /.buckd
 /buck-out
+/cache
+/buckaroo
+/buckaroo-packages
 .buckconfig.local
 BUCKAROO_DEPS
