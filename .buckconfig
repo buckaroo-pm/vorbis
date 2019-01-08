@@ -3,3 +3,4 @@
 
 [cxx]
   should_remap_host_platform = true
+  cxx_flags = -std=c11

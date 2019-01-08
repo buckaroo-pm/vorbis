@@ -1,3 +1,5 @@
+load('//:buckaroo_macros.bzl', 'buckaroo_deps')
+
 cxx_library(
   name = 'vorbis',
   header_namespace = '',
@@ -13,12 +15,7 @@ cxx_library(
   excludes = glob([
     'lib/psytune.c',
   ])),
-  compiler_flags = [
-    '-std=c11',
-  ],
-  deps = [
-    'buckaroo.github.buckaroo-pm.xiph-ogg//:ogg', 
-  ], 
+  deps = buckaroo_deps(),
   visibility = [
     'PUBLIC',
   ],

@@ -1,0 +1,12 @@
+cxx_binary(
+  name = 'test',
+  headers = glob([
+    '*.h',
+  ]),
+  srcs = glob([
+    '*.c',
+  ]),
+  deps = [
+    '//:vorbis',
+  ],
+)

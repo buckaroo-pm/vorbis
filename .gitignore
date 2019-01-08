@@ -45,3 +45,5 @@ test/test
 /buckaroo-packages
 .buckconfig.local
 BUCKAROO_DEPS
+.buckconfig.d
+buckaroo_macros.bzl
