@@ -1,4 +1,4 @@
-manifest = "66339cd27fcb5adb170a5b500094d2be0f6bcae12b3920b93bc1a503f7be7825"
+manifest = "206657866238824d1f98e392b83b3b39d4e9e45afc02565ab434905e83ae43d5"
 
 [[dependency]]
 package = "github.com/buckaroo-pm/xiph-ogg"
