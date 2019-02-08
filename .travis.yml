@@ -1,25 +1,33 @@
-language: c
+language: cpp
+sudo: true
+dist: trusty
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-6
+      - gcc-6
 
 os:
   - linux
   - osx
 
-compiler:
-  - gcc
-  - clang
-
 env:
-  - BUILD_SYSTEM=AUTOTOOLS
-  - BUILD_SYSTEM=CMAKE
+  - BUCKAROO_VERSION=v2.0.0
 
-addons:
-  apt:
-    packages:
-    - libogg-dev
+cache:
+  directories:
+    - $HOME/.buckaroo/cache
+    - $TRAVIS_BUILD_DIR/bin
 
-install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update && brew bundle; fi
+osx_image: xcode9.3
+
+before_install:
+  - ./travis/before-install-$TRAVIS_OS_NAME.sh
 
 script:
-  - if [[ "$BUILD_SYSTEM" == "AUTOTOOLS" ]] ; then ./autogen.sh && ./configure && make -j2 V=1 distcheck; fi
-  - if [[ "$BUILD_SYSTEM" == "CMAKE" ]] ; then mkdir build && pushd build && cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release .. && cmake --build . && popd; fi
+  - ./bin/buckaroo install
+  - ./bin/buck build -c ui.superconsole=DISABLED //:vorbis#default,shared
+  - ./bin/buck build -c ui.superconsole=DISABLED //:vorbis#default,static

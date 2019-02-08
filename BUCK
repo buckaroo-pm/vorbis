@@ -14,6 +14,7 @@ cxx_library(
   ],
   excludes = glob([
     'lib/psytune.c',
+    'lib/barkmel.c',
   ])),
   deps = buckaroo_deps(),
   visibility = [
